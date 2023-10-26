@@ -18,7 +18,7 @@ export const payer = process.env?.LOCAL_PAYER_JSON_ABSPATH
   : loadOrGenerateKeypair("payer");
 
 // generate a new Keypair for testing, named `wallet`
-export const testWallet = loadOrGenerateKeypair("testWallet");
+export const testWallet = loadOrGenerateKeypair("testWallet3");
 
 // load the env variables and store the cluster RPC url
 export const CLUSTER_URL = process.env.RPC_URL ?? clusterApiUrl("devnet");
@@ -27,4 +27,4 @@ export const CLUSTER_URL = process.env.RPC_URL ?? clusterApiUrl("devnet");
 export const connection = new Connection(CLUSTER_URL, "single");
 
 // define an address to also transfer lamports too
-export const STATIC_PUBLICKEY = new PublicKey("nickb1dAk4hKpHVPZenpzqVtw2F8RHnCq27QcfiReXD");
+export const STATIC_PUBLICKEY = new PublicKey("Biccsu5dY5xyeFo24MqmLdCr6vrCmSTyU4XMgSNTnjLD");

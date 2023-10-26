@@ -7,7 +7,12 @@
 import { payer, testWallet, connection, STATIC_PUBLICKEY } from "@/lib/vars";
 import { explorerURL, printConsoleSeparator } from "@/lib/helpers";
 
-import { SystemProgram, TransactionMessage, VersionedTransaction } from "@solana/web3.js";
+import {
+  LAMPORTS_PER_SOL,
+  SystemProgram,
+  TransactionMessage,
+  VersionedTransaction,
+} from "@solana/web3.js";
 
 (async () => {
   //////////////////////////////////////////////////////////////////////////////
@@ -15,6 +20,20 @@ import { SystemProgram, TransactionMessage, VersionedTransaction } from "@solana
 
   console.log("Payer address:", payer.publicKey.toBase58());
   console.log("Test wallet address:", testWallet.publicKey.toBase58());
+
+  // airdrop on low balance
+  // if ((await connection.getBalance(payer.publicKey)) <= LAMPORTS_PER_SOL) {
+  //   console.log("Low balance on payer, requesting an airdrop...");
+  //   await connection.requestAirdrop(payer.publicKey, LAMPORTS_PER_SOL);
+  // }
+
+  // if ((await connection.getBalance(testWallet.publicKey)) <= LAMPORTS_PER_SOL) {
+  //   console.log("Low balance on test wallet, requesting an airdrop...");
+  //   await connection.requestAirdrop(testWallet.publicKey, LAMPORTS_PER_SOL);
+  // }
+
+  console.log("Payer balance:", await connection.getBalance(payer.publicKey));
+  console.log("testWallet balance:", await connection.getBalance(testWallet.publicKey));
 
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
