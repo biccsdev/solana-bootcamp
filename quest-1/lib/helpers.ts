@@ -214,8 +214,8 @@ export async function airdropOnLowBalance(
 
   // check the balance of the two accounts, airdrop when low
   if (forceAirdrop === true || balance < MIN_BALANCE_TO_AIRDROP) {
-    console.log(`Requesting airdrop of 1 SOL to ${keypair.publicKey.toBase58()}...`);
-    await connection.requestAirdrop(keypair.publicKey, LAMPORTS_PER_SOL).then(sig => {
+    console.log(`Requesting airdrop of 5 SOL to ${keypair.publicKey.toBase58()}...`);
+    await connection.requestAirdrop(keypair.publicKey, 5000000000).then(sig => {
       console.log("Tx signature:", sig);
       // balance = balance + LAMPORTS_PER_SOL;
     });
